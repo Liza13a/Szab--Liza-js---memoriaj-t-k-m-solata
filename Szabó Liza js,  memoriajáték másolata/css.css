@@ -1,0 +1,189 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('image.png');
+    /* Kép URL-je helyesen legyen megadva */
+    background-color: #121212;
+    /* Tartalék háttérszín */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+}
+
+/* Főcím */
+h1 {
+    font-size: 3em;
+    color: #f39c12;
+}
+
+/* Játék tábla */
+#game-board {
+    display: grid;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+/* Kártyák */
+.card {
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+    border: 4px solid #b2b2b2;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 28px;
+    color: transparent;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card.flipped {
+    color: black;
+    background-color: rgb(183, 183, 183);
+}
+
+.card.matched {
+    background-color: #0bcc5b;
+}
+
+/* Kártya forgatás */
+.card {
+    transform-style: preserve-3d;
+    transition: transform 0.3s;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Dinamikus grid méret (nehézség szerint) */
+@media (min-width: 600px) {
+    #game-board {
+        grid-template-columns: repeat(8, 60px);
+        /* 8x8 rács támogatása */
+        grid-template-rows: repeat(8, 60px);
+    }
+}
+
+@media (max-width: 600px) {
+    .card {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+}
+/* Reszponzív beállítás kisebb kijelzőkre */
+@media (max-width: 600px) {
+    #difficulty-container {
+        flex-direction: column; /* Kisebb kijelzőn egymás alá rakja */
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    #difficulty-text {
+        font-size: 1.2em;
+        margin-right: 0; /* Ne legyen extra rés a szöveg mellett */
+    }
+
+    #difficultySelect {
+        width: 100%; /* Teljes szélességű legyen kisebb kijelzőn */
+    }
+}
+/* Gombok */
+button {
+    background-color: #1219f3;
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 10px;
+    width: 220px;
+}
+
+button:hover {
+    background-color: #007bd3;
+    transform: scale(1.05);
+}
+
+/* Üzenet és lépésszámláló */
+#game-message {
+    font-size: 1.5em;
+    color: #fb7d00;
+    font-weight: bold;
+    margin: 25px;
+    text-align: center;
+}
+
+#step-count {
+    font-size: 1.2em;
+    color: #fff;
+    text-align: center;
+}
+
+#steps-container {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 1em;
+    color: #ffffff;
+}
+
+/* Beállítások menü */
+#settings-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#difficulty-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Ha nincs hely, akkor törje új sorba */
+}
+
+#difficulty-text {
+    font-size: 1.5em; /* Alapértelmezett méret kisebb */
+    color: #ffffff;
+    margin-right: 10px;
+}
+
+#difficultySelect {
+    background-color: #1219f3;
+    color: #ffffff;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    width: 180px; /* Kisebb méret, hogy jobban illeszkedjen */
+    transition: background-color 0.3s ease;
+}
+
+#difficultySelect:hover {
+    background-color: #0e16c1;
+}
+
+
+#timer-container {
+    position: absolute;  /* Az elem pozicionálása abszolút */
+    top: 70px;           /* A képernyő tetejétől 10px-re */
+    left: 10px;          /* A képernyő bal szélétől 10px-re */
+    font-size: 1.1em;
+    color: #ffffff;
+    margin-top: 5px;
+}
