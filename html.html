@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://github.com/Liza13a/memoriaj-t-k/blob/df0d66d2985570daa56e599c26a3b816da223072/README.md?plain=1">
+    <title>Memória Játék</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+    <h1>Memória Játék</h1>
+    <!-- Játék terület és beállítások -->
+    <div id="game-container">
+        <!-- Beállítások menü -->
+        <div id="settings-menu">
+            <span id="difficulty-text">Nehézségi szint:</span>
+            <select id="difficultySelect" onchange="restartGame()">
+                <option value="2x2">Könnyű (2x2)</option>
+                <option value="4x4" selected>Normál (4x4)</option>
+                <option value="6x6">Nehéz (6x6)</option>
+                <option value="extreme">Extrém (8x8)</option>
+            </select>
+            <button id="start-button" onclick="startGame()">Játék indítása</button>
+        </div>
+
+        <!-- Játék felület -->
+        <div id="game-board-container" style="display: none;">
+            <div id="game-board"></div>
+            <div id="steps-container">
+                <h2>Lépések: <span id="step-count">0</span></h2>
+            </div>
+            <div id="timer-container">
+                <h2>Idő: <span id="timer">00:00</span></h2>
+            </div>
+            <button id="back-button" onclick="goBack()">Vissza</button>
+            <button id="restart-button" onclick="restartGame()">Újraindítás</button>
+            <div id="game-message"></div>
+        </div>
+    </div>
+    <script src="js.js"></script>
+</body>
+
+
+</html>
